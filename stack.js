@@ -34,9 +34,9 @@ function main() {
   starTrek.push('Mccoy');
   starTrek.push('Scotty');
   starTrek.pop();
-//   starTrek.pop();
+  //   starTrek.pop();
 
-//   peek(starTrek);
+  //   peek(starTrek);
   display(starTrek);
 
   
@@ -57,3 +57,20 @@ function display(list) {
     node = node.next;
   }
 }
+
+function is_palindrome(s) {
+  s = s.toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
+  const stack = new Stack();
+  for (let i = 0; i < s.length; i++) {
+    stack.push(s[i]);
+  }
+  for (let i = 0; i < s.length; i++) {
+    let currentLetter = stack.pop();
+    if (currentLetter !== s[i]) {
+      return false;
+    }
+  }
+  return true; 
+}
+
+console.log(is_palindrome('dad'));
