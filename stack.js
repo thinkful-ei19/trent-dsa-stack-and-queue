@@ -182,5 +182,16 @@ let stack = new Stack();
 stack.push(1);
 stack.push(9);
 stack.push(6);
-console.log(JSON.stringify(sortStack(stack)));
+// console.log(JSON.stringify(sortStack(stack)));
 
+function queueUsingStack(stack) {
+  let node = stack.top;
+  let QueueStack = new Stack();
+  while (node !== null) {
+    QueueStack.push(stack.pop());
+    node = node.next;
+  }
+  return QueueStack;
+}
+
+console.log(queueUsingStack(stack));
